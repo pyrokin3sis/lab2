@@ -1,0 +1,17 @@
+#include <stdio.h>
+#include <conio.h>
+#include <string.h>
+#include <stdlib.h>
+using namespace std;
+
+/// Variant 10 - "Абитуриент": фамилия, имя, отчество, пол, национальность, дата рождения(год, месяц, число), домашний адрес(почтовый индекс, страна, область, район, город, улица, дом, квартира), оценки по экзаменам, проходной балл. /// //
+
+typedef struct
+{
+    char second_name[25]
+    char name[25]
+    char last_name[25]
+    char sex_tag[6]
+    char nationality[20]
+    
+}
