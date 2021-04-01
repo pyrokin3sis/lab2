@@ -1,17 +1,124 @@
+#include <iostream>
 #include <stdio.h>
 #include <conio.h>
-#include <string.h>
+#include <string>
 #include <stdlib.h>
 using namespace std;
 
 /// Variant 10 - "Абитуриент": фамилия, имя, отчество, пол, национальность, дата рождения(год, месяц, число), домашний адрес(почтовый индекс, страна, область, район, город, улица, дом, квартира), оценки по экзаменам, проходной балл. /// //
 
-typedef struct
+struct enrolle
 {
-    char second_name[25]
-    char name[25]
-    char last_name[25]
-    char sex_tag[6]
-    char nationality[20]
+    string second_name, first_name, last_name;
+    char sex_tag[6];
+    char nationality[20];
+    string birthday_date[3];
+    string home_adress[8];
+    int exam_grades;
+    int passing_score;
     
+};
+enrolle Initenrolle();
+enrolle* InitArray(int);
+void DisplayArray(enrolle*,int);
+void Displayenrolle(enrolle);
+
+int main()
+{
+    int quantity;
+  cout << "Input quantity of applicants you want to create:" << endl;
+  cin >> quantity;
+  enrolle* mass;
+  mass = InitArray(quantity);
+  DisplayArray(mass,quantity);
 }
+enrolle Initenrolle() 
+{
+  enrolle student;
+  cout << "Input second name:" << endl;
+  cin >> student.second_name;
+  
+  cout << "Input first name:" << endl;
+  cin >> student.first_name;
+  
+  cout << "Input last name:" << endl;
+  cin >> student.last_name;
+  
+  cout << "Input sex_tag:" << endl;
+  cin >> student.sex_tag;
+  
+  cout << "Input nationality:" << endl;
+  cin >> student.nationality;
+  
+  cout << "Input year of birthday:" << endl;
+  cin >> student.birthday_date[0];
+  
+  cout << "Input month of birthday:" << endl;
+  cin >> student.birthday_date[1];
+  
+  cout << "Input day of birthday:" << endl;
+  cin >> student.birthday_date[2];
+  
+  cout << "Input postcode:" << endl;
+  cin >> student.home_adress[0];
+  
+  cout << "Input country:" << endl;
+  cin >> student.home_adress[1];
+  
+  cout << "Input region:" << endl;
+  cin >> student.home_adress[2];
+  
+  cout << "Input district:" << endl;
+  cin >> student.home_adress[3];
+  
+  cout << "Input city:" << endl;
+  cin >> student.home_adress[4];
+  
+ cout << "Input street:" << endl;
+  cin >> student.home_adress[5];
+  
+ cout << "Input home:" << endl;
+  cin >> student.home_adress[6];
+  
+  cout << "Input apartment:" << endl;
+  cin >> student.home_adress[7];
+  
+  cout << "Input exam grades:" << endl;
+  cin >> student.exam_grades;
+  
+  cout << "Passing score:" << endl;
+  cin >> student.passing_score;
+  
+  return student;
+}
+enrolle* InitArray(int Dimension) 
+{
+  enrolle* mass = new enrolle[Dimension];
+  
+  for (int i = 0; i < Dimension; i++) 
+{
+    cout << "Input the information about" << i << "student:" << endl;
+    mass[i] = Initenrolle();
+}
+  
+  return mass;
+}
+void DisplayArray(enrolle* mass, int Dimension) 
+{
+  for (int i = 0; i < Dimension; i++) 
+  {
+    Displayenrolle(mass[i]);
+  }
+}
+
+void Displayenrolle(enrolle student) 
+{
+  cout << "Second Name:   " << student.second_name  << " First Name:   " << student.first_name << " Last Name:   " << student.last_name << endl;
+  cout << "Sex Tag:   " << student.sex_tag << endl;
+  cout << "Nationality:   " << student.nationality << endl;
+  cout << "Year   :" << student.birthday_date[0] << " Month:   " << student.birthday_date[1] << " Day:   " << student.birthday_date[2] << endl;
+  cout << "Postcode:   " << student.home_adress[0] << " Country:   " << student.home_adress[1] << " Region:   " << student.home_adress[2] << " District:   " << student.home_adress[3] << " City:   " << student.home_adress[4] << " Street:   " << student.home_adress[5] << " Home:   " << student.home_adress[6] << " Apartment:   " << student.home_adress[7] << endl; 
+  cout << "Exam grades:   " << student.exam_grades << endl;
+  cout << "Passing score:   " << student.passing_score << endl;
+}
+  
